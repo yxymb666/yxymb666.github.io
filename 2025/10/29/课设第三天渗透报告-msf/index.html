@@ -6,17 +6,26 @@
   
   <title>课设第三天渗透报告 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="web渗透的第一步是信息采集，我打开了目标靶机，查询了他的网段为192.168.58.139 ![1 查询目标的网段](day3\1 查询目标的网段.png) 回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试德工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口 ![2 扫描网段发现目标](D:\blog\">
+  <meta name="description" content="web渗透的第一步是信息采集，我打开了目标靶机，查询了他的网段为192.168.58.139  回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试德工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口  再次使用namp工具对目标ip进行详细扫描，使用的nmap命令为 nmap -sT -sV -O -p-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="课设第三天渗透报告">
-<meta property="og:url" content="http://example.com/2025/10/29/%E8%AF%BE%E8%AE%BE%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:url" content="http://example.com/2025/10/29/%E8%AF%BE%E8%AE%BE%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A-msf/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="web渗透的第一步是信息采集，我打开了目标靶机，查询了他的网段为192.168.58.139 ![1 查询目标的网段](day3\1 查询目标的网段.png) 回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试德工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口 ![2 扫描网段发现目标](D:\blog\">
+<meta property="og:description" content="web渗透的第一步是信息采集，我打开了目标靶机，查询了他的网段为192.168.58.139  回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试德工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口  再次使用namp工具对目标ip进行详细扫描，使用的nmap命令为 nmap -sT -sV -O -p-">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/day3/1.png">
+<meta property="og:image" content="http://example.com/day3/2.png">
+<meta property="og:image" content="http://example.com/day3/3.png">
+<meta property="og:image" content="http://example.com/day3/4.png">
+<meta property="og:image" content="http://example.com/day3/5.png">
+<meta property="og:image" content="http://example.com/day3/6.png">
+<meta property="og:image" content="http://example.com/day3/7.png">
+<meta property="og:image" content="http://example.com/day3/8.png">
 <meta property="article:published_time" content="2025-10-29T08:47:10.000Z">
-<meta property="article:modified_time" content="2025-10-29T09:54:11.656Z">
+<meta property="article:modified_time" content="2025-10-29T10:05:05.939Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/day3/1.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -73,9 +82,9 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-课设第三天渗透报告" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-课设第三天渗透报告-msf" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/10/29/%E8%AF%BE%E8%AE%BE%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A/" class="article-date">
+    <a href="/2025/10/29/%E8%AF%BE%E8%AE%BE%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A-msf/" class="article-date">
   <time class="dt-published" datetime="2025-10-29T08:47:10.000Z" itemprop="datePublished">2025-10-29</time>
 </a>
     
@@ -96,31 +105,31 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>web渗透的第一步是信息采集，我打开了目标靶机，查询了他的网段为192.168.58.139</p>
-<p>![1 查询目标的网段](day3\1 查询目标的网段.png)</p>
+<p><img src="/day3/1.png" alt="1 查询目标的网段"></p>
 <p>回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试德工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口</p>
-<p>![2 扫描网段发现目标](D:\blog\blog\source\day3\2 扫描网段发现目标.png)</p>
+<p><img src="/day3/2.png" alt="2 扫描网段发现目标"></p>
 <p>再次使用namp工具对目标ip进行详细扫描，使用的nmap命令为</p>
 <p><code>nmap -sT -sV -O -p- 192.168.58.139 -oN scan</code></p>
 <p>  -sT是进行TCP全链接扫描，-sv是开启服务版本探测，-O是进行操作系统探测，-p-为扫描所有端口，192.168.58.139为目标主机，-oN scan是将扫描到的信息存储到scan文件中方便以后查看。扫描结果如下</p>
-<p>![3 再次扫描发现端口](D:\blog\blog\source\day3\3 再次扫描发现端口.png)</p>
+<p><img src="/day3/3.png" alt="3 再次扫描发现端口"></p>
 <p>接下来用漏洞脚本来扫描，使用的命令为</p>
 <p><code>nmap --script vuln -p- 192.168.58.139 -oN vul</code></p>
-<p>这个命令可以对目标端口进行漏洞扫描，看下面图片红框部分，smb-vuln-ms17-010脚本的结果表明目标存在漏洞（VULNERABLE),也就是著名的永恒之蓝漏洞，风险等级为高，因为攻击者可以利用这个漏洞远程控制目标的系统。</p>
-<p>![4 扫描寻找漏洞](D:\blog\blog\source\day3\4 扫描寻找漏洞.png)</p>
+<p>这个命令可以对目标端口进行漏洞扫描，看下面图片红框部分，smb-vuln-ms17-010脚本的结果表明目标存在漏洞(VULNERABLE),也就是著名的永恒之蓝漏洞，风险等级为高，因为攻击者可以利用这个漏洞远程控制目标的系统。</p>
+<p><img src="/day3/4.png" alt="4 扫描寻找漏洞"></p>
 <p>接下来用msf（一款用于渗透测试的工具）搜索永恒之蓝漏洞，search ms17-010，发现了可以用来攻击的一些漏洞模块</p>
-<p>![7 用msf查找永恒之蓝漏洞](D:\blog\blog\source\day3\7 用msf查找永恒之蓝漏洞.png)</p>
+<p><img src="/day3/5.png" alt="5 用msf查找永恒之蓝漏洞"></p>
 <p>我选择使用0号模块来攻击（use 0），从下面图片可以了解到RHOSTS参数，也就是目标ip是必须设置的，我在之前信息收集中已经收集到了目标ip，也就是192.168.58.139</p>
-<p>![8 用0，查找需要的参数](D:\blog\blog\source\day3\8 用0，查找需要的参数.png)</p>
+<p><img src="/day3/6.png" alt="6 用0，查找需要的参数"></p>
 <p>如下图，我们将ip输入进去</p>
-<p>![9 输入ip](D:\blog\blog\source\day3\9 输入ip.png)</p>
+<p><img src="/day3/7.png" alt="7 输入ip"></p>
 <p>然后输入run开始此次攻击，不出意外也是攻击成功了，然后我们获取一下高级权限，接下来就可以对目标机为所欲为了</p>
-<p>![11 获得高级权限](D:\blog\blog\source\day3\11 获得高级权限.png)</p>
+<p><img src="/day3/8.png" alt="8 获得高级权限"></p>
 <p>这就是我学习到的第一种web渗透的方法。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/29/%E8%AF%BE%E8%AE%BE%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A/" data-id="cuidhB8Em_inEN-kwoaDH_tFG" data-title="课设第三天渗透报告" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/10/29/%E8%AF%BE%E8%AE%BE%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A-msf/" data-id="cuidorHkpqFZx4kN9UZTiNcsZ" data-title="课设第三天渗透报告" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -171,7 +180,7 @@
       <ul>
         
           <li>
-            <a href="/2025/10/29/%E8%AF%BE%E8%AE%BE%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A/">课设第三天渗透报告</a>
+            <a href="/2025/10/29/%E8%AF%BE%E8%AE%BE%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A-msf/">课设第三天渗透报告</a>
           </li>
         
           <li>
